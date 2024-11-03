@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chennai Metro Ticket Booking</title>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; flex-direction: column; align-items: center; }
+        .container { text-align: center; margin-top: 50px; }
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Chennai Metro Ticket Booking</h1>
+        <form action="/book_ticket" method="post">
+            <button type="submit">Book Ticket</button>
+        </form>
+    </div>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Chennai Metro Ticket</title>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; flex-direction: column; align-items: center; }
+        .container { text-align: center; margin-top: 50px; }
+        .qr-code img { max-width: 200px; }
+        .button { padding: 10px 20px; font-size: 16px; cursor: pointer; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Your Ticket is Booked!</h2>
+        <p><strong>Ticket Number:</strong> {{ ticket_number }}</p>
+        <div class="qr-code">
+            <img src="{{ url_for('static', filename='qr_codes/' + qr_filename) }}" alt="QR Code">
+        </div>
+        <a href="{{ url_for('download_qr', filename=qr_filename) }}" class="button">Download QR Code</a>
+    </div>
+</body>
+</html>
